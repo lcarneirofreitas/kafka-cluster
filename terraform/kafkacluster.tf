@@ -3,7 +3,7 @@
 ###################
 resource "aws_instance" "kafkacluster" {
   count = "${length(var.subnets_ips)}"
-  ami = "ami-0eef1348c189bdf8c"
+  ami = "ami-0a0a0a6eee6c12539"
   instance_type = "t2.medium"
   key_name = "mykey"
   private_ip = "${element(var.subnets_ips,count.index)}"
@@ -20,6 +20,17 @@ sleep 10
 sudo service kafka stop
 sleep 10
 sudo service kafka start
+
+# Add hosts entries (mocking DNS) - put relevant IPs here
+echo "# Golden Image Kafka Teravoz
+172.16.10.100 kafka1
+172.16.10.100 zookeeper1
+172.16.11.100 kafka2
+172.16.11.100 zookeeper2
+172.16.12.100 kafka3
+172.16.12.100 zookeeper3
+127.0.0.1 $HOSTNAME" | sudo tee --append /etc/hosts
+
 EOF
 
   credit_specification {

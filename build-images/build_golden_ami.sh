@@ -92,15 +92,6 @@ sudo cp -pvr /home/ubuntu/install-scripts/data/zookeeper/myid /data/zookeeper/my
 sudo cp -pvr /home/ubuntu/install-scripts/etc/kafka/* /etc/kafka/ && \
 sudo cp -pvr /home/ubuntu/install-scripts/etc/zookeeper/* /etc/zookeeper/ && \
 
-# Add hosts entries (mocking DNS) - put relevant IPs here
-echo '# Golden Image Kafka Teravoz
-172.16.10.100 kafka1
-172.16.10.100 zookeeper1
-172.16.11.100 kafka2
-172.16.11.100 zookeeper2
-172.16.12.100 kafka3
-172.16.12.100 zookeeper3' | sudo tee --append /etc/hosts
-
 cd /tmp" > /tmp/$pid-install-script.sh
 
 # Build Image AWS
