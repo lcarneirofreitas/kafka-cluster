@@ -1,0 +1,59 @@
+#!/bin/bash
+#/etc/init.d/kafka
+
+# Load environments kafka
+
+if [ -f "/etc/default/kafka" ]; then
+	. /etc/default/kafka
+	export KAFKA_PATH="${KAFKA_PATH}"
+	export KAFKA_CONF="${KAFKA_CONF}"
+	export DAEMON_NAME="${DAEMON_NAME}"
+	export KAFKA_HEAP_OPTS="${KAFKA_HEAP_OPTS}"
+	export KAFKA_LOG4J_OPTS="${KAFKA_LOG4J_OPTS}"
+  export KAFKA_JMX_OPTS="${KAFKA_JMX_OPTS}"
+  export JMX_PORT="${JMX_PORT}"
+	export LOG_DIR="${LOG_DIR}"
+else
+	echo "File /etc/default/kafka does not exist."
+	exit 1
+fi
+
+PATH=$PATH:$KAFKA_PATH
+
+# See how we were called.
+case "$1" in
+  start)
+        # Start daemon.
+        pid=`ps ax | grep -i 'kafka.Kafka' | grep -v grep | awk '{print $1}'`
+        if [ -n "$pid" ]
+          then
+            echo "Kafka is already running"
+        else
+          echo "Starting $DAEMON_NAME"
+          $KAFKA_PATH/bin/kafka-server-start.sh -daemon $KAFKA_CONF/server.properties
+        fi
+        ;;
+  stop)
+        echo "Shutting down $DAEMON_NAME"
+        $KAFKA_PATH/bin/kafka-server-stop.sh
+        ;;
+  restart)
+        $0 stop
+        sleep 2
+        $0 start
+        ;;
+  status)
+        pid=`ps ax | grep -i 'kafka.Kafka' | grep -v grep | awk '{print $1}'`
+        if [ -n "$pid" ]
+          then
+          echo "Kafka is Running as PID: $pid"
+        else
+          echo "Kafka is not Running"
+        fi
+        ;;
+  *)
+        echo "Usage: $0 {start|stop|restart|status}"
+        exit 1
+esac
+
+exit 0

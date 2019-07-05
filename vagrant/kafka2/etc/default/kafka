@@ -1,0 +1,10 @@
+# Default kafka variables
+
+DAEMON_NAME="kafka"
+KAFKA_PATH="/opt/kafka"
+KAFKA_CONF="/etc/kafka"
+LOG_DIR="/var/log/kafka"
+#KAFKA_HEAP_OPTS="${KAFKA_HEAP_OPTS}"
+#KAFKA_LOG4J_OPTS="${KAFKA_LOG4J_OPTS}"
+#JMX_PORT="${JMX_PORT}"
+

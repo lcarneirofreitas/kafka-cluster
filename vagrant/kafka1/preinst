@@ -1,0 +1,10 @@
+# Create dirs
+mkdir -p /data/zookeeper \
+        /data/kafka \
+        /var/log/kafka \
+        /etc/kafka \
+        /etc/zookeeper && \
+
+# Disable swap
+sysctl vm.swappiness=1 && \
+echo "vm.swappiness=1" >> /etc/sysctl.d/30-swapoff.conf

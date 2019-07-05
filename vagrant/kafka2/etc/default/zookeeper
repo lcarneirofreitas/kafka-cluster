@@ -1,0 +1,10 @@
+# Default zookeeper variables
+
+DAEMON_NAME="zookeeper"
+ZOOKEEPER_PATH="/opt/kafka"
+ZOOKEEPER_CONF="/etc/zookeeper"
+LOG_DIR="/var/log/kafka"
+#ZOOKEEPER_HEAP_OPTS="${ZOOKEEPER_HEAP_OPTS}"
+#ZOOKEEPER_LOG4J_OPTS="${ZOOKEEPER_LOG4J_OPTS}"
+#JMX_PORT="${JMX_PORT}"
+
