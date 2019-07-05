@@ -2,7 +2,6 @@
 #/etc/init.d/kafka
 
 # Load environments kafka
-
 if [ -f "/etc/default/kafka" ]; then
 	. /etc/default/kafka
 	export KAFKA_PATH="${KAFKA_PATH}"

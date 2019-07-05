@@ -3,17 +3,17 @@
 
 # Load environments zookeeper
 if [ -f "/etc/default/zookeeper" ]; then
-        . /etc/default/zookeeper
-        export ZOOKEEPER_PATH="${ZOOKEEPER_PATH}"
-        export ZOOKEEPER_CONF="${ZOOKEEPER_CONF}"
-        export DAEMON_NAME="${DAEMON_NAME}"
-        export ZOOKEEPER_HEAP_OPTS="${ZOOKEEPER_HEAP_OPTS}"
-        export ZOOKEEPER_LOG4J_OPTS="${ZOOKEEPER_LOG4J_OPTS}"
-        export LOG_DIR="${LOG_DIR}"
-        export JMX_PORT="${JMX_PORT}"
+  . /etc/default/zookeeper
+  export ZOOKEEPER_PATH="${ZOOKEEPER_PATH}"
+  export ZOOKEEPER_CONF="${ZOOKEEPER_CONF}"
+  export DAEMON_NAME="${DAEMON_NAME}"
+  export ZOOKEEPER_HEAP_OPTS="${ZOOKEEPER_HEAP_OPTS}"
+  export ZOOKEEPER_LOG4J_OPTS="${ZOOKEEPER_LOG4J_OPTS}"
+  export LOG_DIR="${LOG_DIR}"
+  export JMX_PORT="${JMX_PORT}"
 else
-        echo "File /etc/default/zookeeper does not exist."
-        exit 1
+  echo "File /etc/default/zookeeper does not exist."
+  exit 1
 fi
 
 PATH=$PATH:$ZOOKEEPER_PATH
