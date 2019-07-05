@@ -3,7 +3,7 @@
 ###################
 resource "aws_instance" "kafkacluster" {
   count = "${length(var.subnets_ips)}"
-  ami = "ami-0c6d2529971de8860"
+  ami = "ami-0eef1348c189bdf8c"
   instance_type = "t2.medium"
   key_name = "mykey"
   private_ip = "${element(var.subnets_ips,count.index)}"
