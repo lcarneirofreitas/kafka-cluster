@@ -3,7 +3,8 @@
 #########
 resource "aws_vpc" "kafka_vpc" {
   cidr_block = "${var.vpc_cidr}"
-  tags {
+
+  tags = {
     Name = "Kafka_Vpc"
   }
 }
@@ -13,7 +14,8 @@ resource "aws_vpc" "kafka_vpc" {
 ##################
 resource "aws_internet_gateway" "kafka_igw" {
   vpc_id = "${aws_vpc.kafka_vpc.id}"
-  tags {
+
+  tags = {
     Name = "Kafka_Igw"
   }
 }
@@ -26,7 +28,8 @@ resource "aws_subnet" "public" {
   vpc_id = "${aws_vpc.kafka_vpc.id}"
   cidr_block = "${element(var.subnets_cidr,count.index)}"
   availability_zone = "${element(var.azs,count.index)}"
-  tags {
+
+  tags = {
     Name = "Kafka_Subnet_${count.index+1}"
   }
 }
@@ -40,7 +43,7 @@ resource "aws_route_table" "public_rt" {
     cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.kafka_igw.id}"
   }
-  tags {
+  tags = {
     Name = "Kafka_Route_Table"
   }
 }
