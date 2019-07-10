@@ -26,8 +26,6 @@ echo "# Golden Image Kafka Teravoz
 172.16.12.100 kafka3
 172.16.12.100 zookeeper3" | sudo tee --append /etc/hosts
 
-DD_API_KEY=4e5df167581a2d112e9f7ea8438dab58 bash -c "$(curl -L https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh)"
-
 EOF
 
   credit_specification {
