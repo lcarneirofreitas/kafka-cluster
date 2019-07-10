@@ -9,8 +9,9 @@ if [ -f "/etc/default/kafka" ]; then
 	export DAEMON_NAME="${DAEMON_NAME}"
 	export KAFKA_HEAP_OPTS="${KAFKA_HEAP_OPTS}"
 	export KAFKA_LOG4J_OPTS="${KAFKA_LOG4J_OPTS}"
-  export KAFKA_JMX_OPTS="${KAFKA_JMX_OPTS}"
-  export JMX_PORT="${JMX_PORT}"
+	export KAFKA_JMX_OPTS="${KAFKA_JMX_OPTS}"
+	export KAFKA_GC_LOG_OPTS="${KAFKA_GC_LOG_OPTS}"
+	export JMX_PORT="${JMX_PORT}"
 	export LOG_DIR="${LOG_DIR}"
 else
 	echo "File /etc/default/kafka does not exist."
