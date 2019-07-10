@@ -3,7 +3,7 @@
 ####################
 terraform {
   backend "s3" {
-    bucket = "terraform-state-kafkacluster"
-    key = "terraform/terraform.tfstate"
+    bucket = "terraform-state-kafkacluster1"
+    key = "terraform/terraform.tfstate1"
   }
 }

@@ -1,11 +1,11 @@
 NAME=kafka
-VERSION=2.1.1
-MINOR=2.12
+VERSION=0.10.2.2
+MINOR=2.10
 
 .PHONY: package
 package:
 	rm -rf $(NAME)_*
-	wget http://apache.mirror.digitalpacific.com.au/kafka/$(VERSION)/$(NAME)_$(MINOR)-$(VERSION).tgz
+	wget https://archive.apache.org/dist/$(NAME)/$(VERSION)/$(NAME)_$(MINOR)-$(VERSION).tgz
 	tar -xvzf $(NAME)_$(MINOR)-$(VERSION).tgz
 	fpm -s dir -t deb -n $(NAME) -v $(MINOR)-$(VERSION) \
 		-C $(NAME)_$(MINOR)-$(VERSION) \

@@ -11,12 +11,10 @@
 
 #            |  vpc-id  |  subnet-id  |    region    |      ami-id       |    tag cfengine    |     ami name     |
 #
-#ASTERISK_VG="vpc-08404873 subnet-5d5b9173 us-east-1 ami-05a36d3b9aa4a17ac ASTERISK\nASTERISK_NEW asterisk_teravoz"
-#ASTERISK_SP="vpc-672da202 subnet-096a78d59cffec6fa sa-east-1 ami-05eaf9b21ed6dee3c ASTERISK\nASTERISK_NEW asterisk_teravoz"
-
-ASTERISK_VG="vpc-a3c27edb subnet-1b9b6334 us-east-1 ami-05a36d3b9aa4a17ac ASTERISK\nASTERISK_NEW asterisk_teravoz"
-ASTERISK_SP="vpc-672da202 subnet-096a78d59cffec6fa sa-east-1 ami-05eaf9b21ed6dee3c ASTERISK\nASTERISK_NEW asterisk_teravoz"
-KAFKA_VG="vpc-a3c27edb subnet-914fdef5 us-east-1 ami-07b4156579ea1d7ba KAFKA kafka_teravoz"
+# ASTERISK_VG="vpc-a3c27edb subnet-1b9b6334 us-east-1 ami-05a36d3b9aa4a17ac ASTERISK\nASTERISK_NEW asterisk_teravoz"
+# ASTERISK_SP="vpc-672da202 subnet-096a78d59cffec6fa sa-east-1 ami-05eaf9b21ed6dee3c ASTERISK\nASTERISK_NEW asterisk_teravoz"
+# KAFKA_VG="vpc-a3c27edb subnet-914fdef5 us-east-1 ami-07b4156579ea1d7ba KAFKA kafka_teravoz"
+KAFKA_VG="vpc-0d9a51e3c3529a0ef subnet-052e6d71121a57821 us-east-1 ami-07b4156579ea1d7ba KAFKA kafka_teravoz"
 
 # Debug mode
 test -n "$DEBUG" && set -x
