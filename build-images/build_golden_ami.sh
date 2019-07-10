@@ -82,7 +82,7 @@ echo "# \"Install packages\"
 sudo apt-get update && \
 sudo apt-get upgrade -y && \
 sudo apt-get install -y openjdk-8-jdk && \
-sudo dpkg -i /home/ubuntu/install-scripts/kafka_2.12-2.1.1_amd64.deb && \
+sudo dpkg -i /home/ubuntu/install-scripts/kafka_2.10-0.10.2.2_amd64.deb && \
 sudo apt-get install -f
 
 # Copy confs default
