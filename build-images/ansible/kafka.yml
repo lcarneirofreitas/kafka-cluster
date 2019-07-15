@@ -1,0 +1,16 @@
+---
+
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+
+  vars:
+    path_tasks: /home/ubuntu/ansible
+
+  tasks:
+
+    - name: Init Ubuntu confs
+      import_tasks: "{{ path_tasks }}/tasks/initubuntu.yml"
+
+    - name: Install kafka cluster
+      import_tasks: "{{ path_tasks }}/tasks/kafka-node.yml"

@@ -2,11 +2,11 @@
 # Ec2 Docker Host
 #################
 resource "aws_instance" "dockerhost" {
-  ami = "ami-0bb0263ff5c3c5949"
+  ami = "ami-07032bc677341bf33"
   instance_type = "t2.medium"
   key_name = "mykey"
   associate_public_ip_address = true
-  subnet_id = "subnet-066a53e82f3345402"
+  subnet_id = "subnet-0fd4dedc441aaf27c"
   security_groups = [ "${aws_security_group.allow_ssh.id}" ]
 
   user_data = <<EOF

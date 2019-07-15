@@ -1,0 +1,27 @@
+---
+
+- name: Install openjdk-8-jdk package
+  apt: 
+    name: openjdk-8-jdk
+
+- name: Install a .deb kafka-teravoz
+  apt:
+    deb: "{{ path_tasks }}/files/kafka/kafka_2.10-0.10.2.2_amd64.deb"
+
+- name: Copy file to /data/zookeeper/myid
+  become: yes
+  copy:
+    src: "{{ path_tasks }}/files/kafka/data/zookeeper/myid"
+    dest: /data/zookeeper/myid
+
+- name: Copy file to /etc/kafka/server.properties
+  become: yes
+  copy:
+    src: "{{ path_tasks }}/files/kafka/etc/kafka/server.properties"
+    dest: /etc/kafka/server.properties
+
+- name: Copy file to /etc/zookeeper/zookeeper.properties
+  become: yes
+  copy:
+    src: "{{ path_tasks }}/files/kafka/etc/zookeeper/zookeeper.properties"
+    dest: /etc/zookeeper/zookeeper.properties
