@@ -9,8 +9,8 @@
 
   tasks:
 
-    - name: Init Ubuntu confs
-      import_tasks: "{{ path_tasks }}/tasks/initubuntu.yml"
+    - name: Init Ubuntu
+      import_tasks: "{{ path_tasks }}/tasks/init-ubuntu.yml"
 
     - name: Install kafka cluster
       import_tasks: "{{ path_tasks }}/tasks/kafka-node.yml"

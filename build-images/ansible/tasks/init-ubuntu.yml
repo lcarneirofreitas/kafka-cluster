@@ -1,8 +1,5 @@
 ---
 
-- name: print out the hostname of target
-  command: hostname
-
 - name: ensure aptitude is installed
   command: apt-get -y install aptitude
 
