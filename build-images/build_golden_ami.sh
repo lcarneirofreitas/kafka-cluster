@@ -83,6 +83,8 @@ echo "{
   	]
 }" > /tmp/$pid-$app.json
 
+#		  \"extra_arguments\": [ \"-vvvv\" ],
+
 
 # Build Image AWS
 packer validate /tmp/$pid-$app.json && \

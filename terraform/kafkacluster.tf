@@ -3,7 +3,7 @@
 ###################
 resource "aws_instance" "kafkacluster" {
   count = "${length(var.subnets_ips)}"
-  ami = "ami-07032bc677341bf33"
+  ami = "ami-02c3fdd29a6edbc45"
   instance_type = "t2.medium"
   key_name = "mykey"
   associate_public_ip_address = true
@@ -32,7 +32,6 @@ sleep 10
 sudo service kafka stop
 sleep 10
 sudo service kafka start
-
 
 EOF
 

@@ -1,0 +1,45 @@
+version: '3'
+
+services:
+  producer:
+    image: enrich/teravoz-kafka-producer
+    network_mode: host
+    environment:
+      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
+      - TOPIC=teste
+      - STRESS=false
+      - FREQUENCY=20
+      - PARTITION=-1
+
+  consumer:
+    image: enrich/teravoz-kafka-consumer
+    network_mode: host
+    environment:
+      - TOPIC=teste
+      - CONCURRENCY=10
+      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
+      - GROUP_ID=teste
+
+  kafka-manager:
+    image: qnib/plain-kafka-manager
+    network_mode: host
+    environment:
+      ZOOKEEPER_HOSTS: "zookeeper1:2181,zookeeper2:2181,zookeeper3:2181"
+      APPLICATION_SECRET: change_me_please
+    restart: always
+
+#  datadog:
+#    links:
+#     - consumer
+#     - producer
+#    image: datadog/agent:latest
+#    environment:
+#     - DD_API_KEY=${DD_API_KEY}
+#     - DD_LOGS_ENABLED=true
+#     - DD_AC_EXCLUDE="name:datadog-agent"
+#     - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+#    volumes:
+#     - /var/run/docker.sock:/var/run/docker.sock:ro
+#     - /proc:/host/proc:ro
+#     - /opt/datadog-agent/run:/opt/datadog-agent/run:rw
+#     - /sys/fs/cgroup:/host/sys/fs/cgroup:ro

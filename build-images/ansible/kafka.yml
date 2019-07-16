@@ -12,5 +12,8 @@
     - name: Init Ubuntu
       import_tasks: "{{ path_tasks }}/tasks/init-ubuntu.yml"
 
+    - name: Install datadog agent
+      import_tasks: "{{ path_tasks }}/tasks/datadog-agent.yml"
+
     - name: Install kafka cluster
       import_tasks: "{{ path_tasks }}/tasks/kafka-node.yml"

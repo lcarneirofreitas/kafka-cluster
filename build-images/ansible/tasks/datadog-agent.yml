@@ -1,0 +1,45 @@
+---
+
+- name: Install apt-transport-https package
+  apt: 
+    name: apt-transport-https
+    update_cache: yes
+
+- name: Create sources list datadog
+  apt_repository:
+    repo: deb https://apt.datadoghq.com/ stable 6
+    state: present
+
+# - name: Copy files to /etc/apt/sources.list.d/
+#   synchronize:
+#     src: "{{ path_tasks }}/files/datadog/etc/apt/sources.list.d"
+#     dest: "/etc/apt/sources.list.d"
+
+- name: Apt key datadog
+  become: yes
+  command: apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 382E94DE
+
+- name: Update apt packages
+  become: yes
+  command: apt-get update
+
+- name: Install datadog-agent package
+  apt: 
+    name: datadog-agent
+
+- name: Copy files to /etc/datadog-agent/
+  synchronize:
+    src: "{{ path_tasks }}/files/datadog/etc/datadog-agent/"
+    dest: "/etc/datadog-agent/"
+
+- name: Change owner datadog dir
+  become: yes
+  command: chown -vR dd-agent.dd-agent /etc/datadog-agent
+
+# - name: Adding existing user dd-agent to group docker
+#   user:
+#     name: dd-agent
+#     groups: docker
+#     append: yes
+
+
