@@ -6,7 +6,7 @@ resource "aws_instance" "dockerhost" {
   instance_type = "t2.medium"
   key_name = "mykey"
   associate_public_ip_address = true
-  subnet_id = "subnet-00cbfe82207cf43e0"
+  subnet_id = "subnet-0fb24c3eb1ddb3512"
   security_groups = [ "${aws_security_group.allow_ssh.id}" ]
 
   user_data = <<EOF
@@ -24,10 +24,8 @@ echo "# Golden Image Kafka Teravoz
 curl -fsSL https://get.docker.com | sudo bash
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
-
-#sudo docker-compose up -d
-
 sudo usermod -a -G docker dd-agent
+sudo docker-compose up -d -f /home/ubuntu/ansible/files/docker/docker-compose.yml
 
 EOF
 
