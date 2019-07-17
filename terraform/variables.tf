@@ -13,6 +13,18 @@ variable "vpc_cidr" {
 	default = "172.16.0.0/16"
 }
 
+variable "ami_kafka" {
+	default = "ami-04be9c5aed9bc9d29"
+}
+
+variable "instance_type_kafka" {
+	default = "t2.medium"
+}
+
+variable "subnet_kafka" {
+	default = "subnet-0f46933b8751c72f4"
+}
+
 variable "subnets_cidr" {
 	type = "list"
 	default = [ "172.16.10.0/24",
