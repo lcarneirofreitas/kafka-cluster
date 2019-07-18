@@ -1,3 +1,5 @@
+## Directory structure:
+
 .
 ├── ansible
 │   ├── files
@@ -55,3 +57,4 @@
         ├── Makefile
         ├── postinst
         └── preinst
+
