@@ -1,5 +1,6 @@
 ## Directory structure:
 
+```bash
 .
 ├── ansible
 │   ├── files
@@ -57,4 +58,4 @@
         ├── Makefile
         ├── postinst
         └── preinst
-
+```
