@@ -14,7 +14,7 @@ variable "vpc_cidr" {
 }
 
 variable "ami_kafka" {
-	default = "ami-04be9c5aed9bc9d29"
+	default = "ami-0587ac28187b27d7e"
 }
 
 variable "instance_type_kafka" {
@@ -22,7 +22,7 @@ variable "instance_type_kafka" {
 }
 
 variable "subnet_kafka" {
-	default = "subnet-0f46933b8751c72f4"
+	default = "subnet-0369ba4150c7f8820"
 }
 
 variable "subnets_cidr" {

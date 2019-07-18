@@ -21,4 +21,5 @@ package:
 		--pre-install preinst \
 		--post-install postinst \
 		bin config libs site-docs LICENSE NOTICE
+	cp *.deb ../../ansible/files/kafka/
 
