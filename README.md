@@ -71,4 +71,3 @@ mv docker-host.tf-old docker-host.tf
 terraform apply -target=aws_instance.dockerhost
 ```
 
-## Directory structure:
