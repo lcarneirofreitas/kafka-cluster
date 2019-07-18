@@ -1,0 +1,10 @@
+#########################
+### Basic Configuration ##
+##########################
+#
+### @param api_key - string - required
+### The Datadog API key to associate your Agent's data with your organization.
+### Create a new API key here: https://app.datadoghq.com/account/settings
+##
+api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
