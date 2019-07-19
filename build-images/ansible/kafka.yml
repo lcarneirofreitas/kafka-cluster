@@ -17,3 +17,6 @@
 
     - name: Install kafka cluster
       import_tasks: "{{ path_tasks }}/tasks/kafka-node.yml"
+
+    - name: Running testinfra
+      import_tasks: "{{ path_tasks }}/tasks/kafka-test.yml"

@@ -1,0 +1,16 @@
+---
+
+- name: Install python packages
+  apt: 
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - python-pip
+    - python-pytest
+
+- name: Install testinfra
+  pip: 
+    name: testinfra
+
+- name: Run testinfra scripts
+  command: "py.test -v {{ path_tasks }}/test/kafka-test.py"
