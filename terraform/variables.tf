@@ -5,16 +5,12 @@ variable "aws_region" {
 	default = "us-east-1"
 }
 
-variable "PATH_TO_PUBLIC_KEY" { 
-	default = "files/mykey" 
-}
-
 variable "vpc_cidr" {
 	default = "172.16.0.0/16"
 }
 
 variable "ami_kafka" {
-	default = "ami-0587ac28187b27d7e"
+	default = "ami-04dcee9b9439bbd8d"
 }
 
 variable "instance_type_kafka" {
@@ -22,7 +18,7 @@ variable "instance_type_kafka" {
 }
 
 variable "subnet_kafka" {
-	default = "subnet-0369ba4150c7f8820"
+	default = "subnet-0fff19e05659d3d89"
 }
 
 variable "subnets_cidr" {
