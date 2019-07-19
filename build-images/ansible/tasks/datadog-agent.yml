@@ -10,11 +10,6 @@
     repo: deb https://apt.datadoghq.com/ stable 6
     state: present
 
-# - name: Copy files to /etc/apt/sources.list.d/
-#   synchronize:
-#     src: "{{ path_tasks }}/files/datadog/etc/apt/sources.list.d"
-#     dest: "/etc/apt/sources.list.d"
-
 - name: Apt key datadog
   become: yes
   command: apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 382E94DE
