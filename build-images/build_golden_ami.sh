@@ -58,7 +58,15 @@ echo "{
 		\"source_ami\": \"$amiaws\",
 		\"instance_type\": \"t2.micro\",
 		\"ssh_username\": \"ubuntu\",
-		\"ami_name\": \"$versionapp\"
+		\"ami_name\": \"$versionapp\",
+		\"launch_block_device_mappings\": [
+    		{
+      			\"device_name\": \"/dev/sda1\",
+      			\"volume_size\": 40,
+      			\"volume_type\": \"gp2\",
+      			\"delete_on_termination\": true
+    		}
+  		]
 	}],
 
     \"provisioners\": [{
