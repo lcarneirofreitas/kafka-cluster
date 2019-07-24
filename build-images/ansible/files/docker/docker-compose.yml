@@ -1,19 +1,37 @@
 version: '3'
-
 services:
+
+  # producer:
+  #   image: lcarneirofreitas/producer-kafka
+  #   network_mode: host
+
+  # consumer:
+  #   image: lcarneirofreitas/consumer-kafka
+  #   network_mode: host
+
   producer:
-    image: lcarneirofreitas/producer-kafka
-    network_mode: host
-
-  consumer:
-    image: lcarneirofreitas/consumer-kafka
-    network_mode: host
-
-  kafka-manager:
-    image: qnib/plain-kafka-manager
+    image: enrich/kafka-producer
     network_mode: host
     environment:
-      ZOOKEEPER_HOSTS: "zookeeper1:2181,zookeeper2:2181,zookeeper3:2181"
-      APPLICATION_SECRET: change_me_please
-    restart: always
+      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
+      - TOPIC=topico
+      - STRESS=false
+      - FREQUENCY=20
+      - PARTITION=-1
 
+  consumer:
+    image: enrich/kafka-consumer
+    network_mode: host
+    environment:
+      - TOPIC=topico
+      - CONCURRENCY=5
+      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
+      - GROUP_ID=teste
+
+  kafka-manager:
+    image: sheepkiller/kafka-manager:latest
+    network_mode: host
+    environment:
+      ZK_HOSTS: zookeeper1:2181,zookeeper2:2181,zookeeper3:2181
+      APPLICATION_SECRET: letmein
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
