@@ -40,7 +40,7 @@ make
 Obs: More details read Makefile
 
 
-2 - "packer" Provisioning of the ec2 linux image in aws "AMI", responsible for the kafka cluster node
+2 - "packer" Provisioning the ec2 linux image in aws "AMI", responsible for the kafka cluster node
 ```bash
 cd build-images/
 
