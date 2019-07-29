@@ -6,7 +6,7 @@
 
 - name: Install a .deb kafka-teravoz
   apt:
-    deb: "{{ path_tasks }}/files/kafka/kafka_2.10-0.10.2.2_amd64.deb"
+    deb: "{{ path_tasks }}/files/kafka/kafka_2.12-2.3.0_amd64.deb"
 
 - name: Copy file to /data/zookeeper/myid
   become: yes

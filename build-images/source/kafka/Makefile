@@ -1,6 +1,8 @@
 NAME=kafka
-VERSION=0.10.2.2
-MINOR=2.10
+# VERSION=0.10.2.2
+# MINOR=2.10
+VERSION=2.3.0
+MINOR=2.12
 
 .PHONY: package
 package:
