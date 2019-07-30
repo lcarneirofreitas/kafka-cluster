@@ -1,32 +1,13 @@
 version: '3'
 services:
 
-  # producer:
-  #   image: lcarneirofreitas/producer-kafka
-  #   network_mode: host
-
-  # consumer:
-  #   image: lcarneirofreitas/consumer-kafka
-  #   network_mode: host
-
   producer:
-    image: enrich/kafka-producer
+    image: lcarneirofreitas/producer-kafka
     network_mode: host
-    environment:
-      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
-      - TOPIC=topico
-      - STRESS=false
-      - FREQUENCY=20
-      - PARTITION=-1
 
   consumer:
-    image: enrich/kafka-consumer
+    image: lcarneirofreitas/consumer-kafka
     network_mode: host
-    environment:
-      - TOPIC=topico
-      - CONCURRENCY=5
-      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
-      - GROUP_ID=teste
 
   kafka-manager:
     image: sheepkiller/kafka-manager:latest

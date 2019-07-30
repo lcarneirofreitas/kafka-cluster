@@ -18,7 +18,7 @@ def test_java_is_installed(host):
 def test_kafka_is_installed(host):
     java = host.package("kafka")
     assert java.is_installed
-    assert java.version.startswith("2.12-2.3.0")
+    assert java.version.startswith("2.11-0.11.0.3")
 
 def test_datadog_is_installed(host):
     datadog = host.package("datadog-agent")
