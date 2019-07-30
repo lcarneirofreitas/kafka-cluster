@@ -9,3 +9,6 @@
 - name: upgrade system packages i.e. apt-get upgrade
   apt: upgrade=yes
 
+- name: Set timezone to America/Sao_Paulo
+  timezone:
+    name: America/Sao_Paulo
