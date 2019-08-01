@@ -39,7 +39,7 @@ create_ami() {
 	tag=$7 && \
 	aminame=$8 && \
 	pid=$$ && \
-	versionapp="$aminame-$(date +"%Y-%m-%d")-$version"
+	versionapp="$aminame-$version"
 	export AWS_PROFILE="default"
 
 echo "{

@@ -1,11 +1,27 @@
 version: '3'
 services:
 
-  producer:
+  producer1:
     image: lcarneirofreitas/producer-kafka
     network_mode: host
 
-  consumer:
+  producer2:
+    image: lcarneirofreitas/producer-kafka
+    network_mode: host
+
+  consumer1:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+
+  consumer2:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+
+  consumer3:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+
+  consumer4:
     image: lcarneirofreitas/consumer-kafka
     network_mode: host
 
