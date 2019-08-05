@@ -115,5 +115,5 @@ def test_datadog_zookeeper1_file(host):
 
 def test_datadog_docker_file(host):
     df6 = host.file("/etc/datadog-agent/conf.d/docker.d/conf.yaml")
-    assert df6.md5sum == "1097cec152e6e145eb67daf2330d5a40"
+    assert df6.md5sum == "19ba04fb9e0342ae7962e8ff405d47ea"
 

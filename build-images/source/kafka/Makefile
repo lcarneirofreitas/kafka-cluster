@@ -5,7 +5,7 @@ MINOR=2.11
 .PHONY: package
 package:
 	rm -rf $(NAME)_*
-	wget https://archive.apache.org/dist/$(NAME)/$(VERSION)/$(NAME)_$(MINOR)-$(VERSION).tgz
+	wget --no-check-certificate https://archive.apache.org/dist/$(NAME)/$(VERSION)/$(NAME)_$(MINOR)-$(VERSION).tgz
 	tar -xvzf $(NAME)_$(MINOR)-$(VERSION).tgz
 	fpm -s dir -t deb -n $(NAME) -v $(MINOR)-$(VERSION) \
 		-C $(NAME)_$(MINOR)-$(VERSION) \
