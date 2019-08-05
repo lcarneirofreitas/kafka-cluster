@@ -1,14 +1,20 @@
+import os
 from json import loads
-
 from kafka import KafkaConsumer
 from kafka.structs import OffsetAndMetadata, TopicPartition
 
-consumer = KafkaConsumer(bootstrap_servers=['kafka1:9092','kafka2:9092','kafka3:9092'],
+brokers = os.environ['BROKERS']
+groupid = os.environ['GROUPID']
+topic = os.environ['TOPIC']
+
+consumer = KafkaConsumer(bootstrap_servers=brokers,
                          value_deserializer=lambda x: loads(x.decode('utf-8')),
                          auto_offset_reset="earliest",
-                         group_id='mygroup')
+                         session_timeout_ms=10000,
+                         heartbeat_interval_ms=3000,
+                         group_id=groupid)
 
-consumer.subscribe(['numtest'])
+consumer.subscribe([topic])
 
 for message in consumer:
 

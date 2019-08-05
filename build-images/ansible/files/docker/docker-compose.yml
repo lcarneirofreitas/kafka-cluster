@@ -4,7 +4,7 @@ services:
   datadog-agent:
     image: datadog/agent:latest
     environment:
-      DD_API_KEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      DD_API_KEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
       DD_LOGS_ENABLED: 1
       DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL: 1
     volumes:
@@ -15,26 +15,48 @@ services:
   producer1:
     image: lcarneirofreitas/producer-kafka
     network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
 
   producer2:
     image: lcarneirofreitas/producer-kafka
     network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
 
   consumer1:
     image: lcarneirofreitas/consumer-kafka
     network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
 
   consumer2:
     image: lcarneirofreitas/consumer-kafka
     network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
 
   consumer3:
     image: lcarneirofreitas/consumer-kafka
     network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
 
   consumer4:
     image: lcarneirofreitas/consumer-kafka
     network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
 
   kafka-manager:
     image: sheepkiller/kafka-manager:latest
