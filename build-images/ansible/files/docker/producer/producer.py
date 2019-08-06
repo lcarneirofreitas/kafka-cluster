@@ -1,10 +1,12 @@
 import os
 import json
+import time
 from kafka import KafkaProducer, TopicPartition
 from kafka.partitioner import RoundRobinPartitioner
 
 brokers = os.environ['BROKERS']
 topics = os.environ['TOPIC']
+delay = float(os.environ.get('DELAY','0.0'))
 
 # given that numtest `numtest` has at least 8 partitions
 partitioner = RoundRobinPartitioner(partitions=[
@@ -27,6 +29,6 @@ while True:
     data = {'number' : e}
     producer.send(topics, value=data)
     producer.flush()
-    #sleep(0.1)
+    time.sleep(delay)
     print('produced message: {}'.format(data))
     e = e + 1
