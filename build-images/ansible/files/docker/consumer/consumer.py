@@ -10,8 +10,7 @@ topic = os.environ['TOPIC']
 consumer = KafkaConsumer(bootstrap_servers=brokers,
                          value_deserializer=lambda x: loads(x.decode('utf-8')),
                          auto_offset_reset="earliest",
-                         session_timeout_ms=10000,
-                         heartbeat_interval_ms=3000,
+                         max_poll_interval_ms=600000,
                          group_id=groupid)
 
 consumer.subscribe([topic])
