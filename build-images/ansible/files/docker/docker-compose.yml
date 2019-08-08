@@ -1,32 +1,64 @@
 version: '3'
 services:
 
-  # producer:
-  #   image: lcarneirofreitas/producer-kafka
-  #   network_mode: host
+  datadog-agent:
+    image: datadog/agent:latest
+    environment:
+      DD_API_KEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      DD_LOGS_ENABLED: 1
+      DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL: 1
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock:ro
+     - /proc/:/host/proc/:ro
+     - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
 
-  # consumer:
-  #   image: lcarneirofreitas/consumer-kafka
-  #   network_mode: host
-
-  producer:
-    image: enrich/kafka-producer
+  producer1:
+    image: lcarneirofreitas/producer-kafka
     network_mode: host
     environment:
-      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
-      - TOPIC=topico
-      - STRESS=false
-      - FREQUENCY=20
-      - PARTITION=-1
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      DELAY: "0.01"
 
-  consumer:
-    image: enrich/kafka-consumer
+  producer2:
+    image: lcarneirofreitas/producer-kafka
     network_mode: host
     environment:
-      - TOPIC=topico
-      - CONCURRENCY=5
-      - BROKERS=kafka1:9092,kafka2:9092,kafka3:9092
-      - GROUP_ID=teste
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      DELAY: "0.01"
+
+  consumer1:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
+
+  consumer2:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
+
+  consumer3:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
+
+  consumer4:
+    image: lcarneirofreitas/consumer-kafka
+    network_mode: host
+    environment:
+      BROKERS: "kafka1:9092,kafka2:9092,kafka3:9092"
+      TOPIC: "numtest"
+      GROUPID: "mygroup"
 
   kafka-manager:
     image: sheepkiller/kafka-manager:latest
