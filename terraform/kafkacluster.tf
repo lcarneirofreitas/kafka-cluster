@@ -29,9 +29,7 @@ sudo service zookeeper stop
 sleep 10
 sudo service zookeeper start
 sleep 10
-sudo service kafka stop
-sleep 10
-sudo service kafka start
+sudo service kafka restart
 
 EOF
 
