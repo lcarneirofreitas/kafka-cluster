@@ -1,16 +1,34 @@
-from time import sleep
-from json import dumps
-from kafka import KafkaProducer
+import os
+import json
+import time
+from kafka import KafkaProducer, TopicPartition
+from kafka.partitioner import RoundRobinPartitioner
 
-producer = KafkaProducer(bootstrap_servers=['kafka1:9092','kafka2:9092','kafka3:9092'],
-                         value_serializer=lambda x: 
-                         dumps(x).encode('utf-8'))
+brokers = os.environ['BROKERS']
+topics = os.environ['TOPIC']
+delay = float(os.environ.get('DELAY','0.0'))
 
-#for e in range(1000):
+# given that numtest `numtest` has at least 8 partitions
+partitioner = RoundRobinPartitioner(partitions=[
+    TopicPartition(topic=topics, partition=0),
+    TopicPartition(topic=topics, partition=1),
+    TopicPartition(topic=topics, partition=2),
+    TopicPartition(topic=topics, partition=3),
+    TopicPartition(topic=topics, partition=4),
+    TopicPartition(topic=topics, partition=5),
+    TopicPartition(topic=topics, partition=6),
+    TopicPartition(topic=topics, partition=7)
+])
+
+producer = KafkaProducer(bootstrap_servers=brokers,
+                         value_serializer=lambda x: json.dumps(x).encode('utf8'),
+                         partitioner=partitioner)
+
 e = 1
 while True:
     data = {'number' : e}
-    producer.send('numtest', value=data)
-    #sleep(0.1)
+    producer.send(topics, value=data)
+    producer.flush()
+    time.sleep(delay)
     print('produced message: {}'.format(data))
     e = e + 1
