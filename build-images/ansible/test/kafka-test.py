@@ -95,7 +95,7 @@ def test_kafka_default_file(host):
 
 def test_datadog_file(host):
     df1 = host.file("/etc/datadog-agent/datadog.yaml")
-    assert df1.md5sum == "9cdb16e0b0db13467a731de625d8987f"
+    assert df1.md5sum == "a89e15f05ccf7d17082276deaf274281"
 
 def test_datadog_kafka1_file(host):
     df2 = host.file("/etc/datadog-agent/conf.d/kafka.d/conf.yaml")

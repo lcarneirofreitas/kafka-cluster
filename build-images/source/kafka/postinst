@@ -1,15 +1,4 @@
 # Automatically added by dh_installinit
-if [ -x "/etc/systemd/system/zookeeper.service" ]; then
-        systemctl daemon-reload
-        systemctl enable zookeeper >/dev/null
-        systemctl start zookeeper || exit $?
-fi
-
-sleep 10
-
-if [ -x "/etc/systemd/system/kafka.service" ]; then
-        systemctl daemon-reload
-        systemctl enable kafka >/dev/null
-        systemctl start kafka || exit $?
-fi
-# End automatically added section
+   systemctl daemon-reload
+   systemctl enable zookeeper
+   systemctl enable kafka
