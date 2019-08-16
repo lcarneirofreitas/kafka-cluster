@@ -4,6 +4,6 @@ DAEMON_NAME="zookeeper"
 ZOOKEEPER_PATH="/opt/kafka"
 ZOOKEEPER_CONF="/etc/zookeeper"
 LOG_DIR="/var/log/kafka"
-KAFKA_GC_LOG_OPTS="-Xlog:gc:$LOG_DIR/zookeeper-gc.log -verbose:gc -XX:+PrintGCDetails "
+#KAFKA_GC_LOG_OPTS="-Xlog:gc:$LOG_DIR/zookeeper-gc.log -verbose:gc -XX:+PrintGCDetails "
 #JMX_PORT="${JMX_PORT}"
 

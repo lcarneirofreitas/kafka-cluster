@@ -6,5 +6,25 @@
 ### The Datadog API key to associate your Agent's data with your organization.
 ### Create a new API key here: https://app.datadoghq.com/account/settings
 ##
-api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+api_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+use_mount: no
+
+log_level: INFO
+logs_enabled: true
+
+listeners:
+  - name: docker
+
+config_providers:
+  - name: docker
+    polling: true
+
+logs_config:
+  container_collect_all: true
+
+process_config:
+  enabled: "true"
+
+docker_labels_as_tags:
+  my.custom.label.project: "team"

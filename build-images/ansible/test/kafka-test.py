@@ -34,15 +34,15 @@ def test_sshd_running(host):
     assert ssh.is_running
     assert ssh.is_enabled
 
-def test_kafka_running(host):
-    kafka = host.service("kafka")
-    assert kafka.is_running
-    assert kafka.is_enabled
+# def test_kafka_running(host):
+#     kafka = host.service("kafka")
+#     assert kafka.is_running
+#     assert kafka.is_enabled
 
-def test_zookeper_running(host):
-    zookeeper = host.service("zookeeper")
-    assert zookeeper.is_running
-    assert zookeeper.is_enabled
+# def test_zookeper_running(host):
+#     zookeeper = host.service("zookeeper")
+#     assert zookeeper.is_running
+#     assert zookeeper.is_enabled
 
 # def test_datadog_running(host):
 #     datadog = host.service("datadog-agent")
@@ -87,15 +87,15 @@ def test_zookeeper_properties_file(host):
 
 def test_zookeeper_default_file(host):
     zkd = host.file("/etc/default/zookeeper")
-    assert zkd.md5sum == "27e1ef8d3a375e3c9970ff0455508ce3"
+    assert zkd.md5sum == "8372fda94d9f313c5dd9b78a99f363c2"
 
 def test_kafka_default_file(host):
     kfd = host.file("/etc/default/kafka")
-    assert kfd.md5sum == "662648ea6e5eb7432fb6d40927e609f6"
+    assert kfd.md5sum == "65b81bdae15797054c2a992465b84d73"
 
 def test_datadog_file(host):
     df1 = host.file("/etc/datadog-agent/datadog.yaml")
-    assert df1.md5sum == "b5301abf722ba15bdbf75d9b4fc571da"
+    assert df1.md5sum == "9cdb16e0b0db13467a731de625d8987f"
 
 def test_datadog_kafka1_file(host):
     df2 = host.file("/etc/datadog-agent/conf.d/kafka.d/conf.yaml")
