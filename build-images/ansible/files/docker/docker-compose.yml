@@ -4,7 +4,7 @@ services:
   # datadog-agent:
   #   image: datadog/agent:latest
   #   environment:
-  #     DD_API_KEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  #     DD_API_KEY: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
   #     DD_LOGS_ENABLED: 1
   #     DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL: 1
   #   volumes:
